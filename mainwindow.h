@@ -19,7 +19,7 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-void onProgressChanged(QString info);
+    void onProgressChanged(QString info);
 
 };
 

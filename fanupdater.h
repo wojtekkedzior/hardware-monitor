@@ -23,14 +23,14 @@ public :
 
 private :
     const char* sensorFiles[36] = {
-        "/sys/class/hwmon/hwmon1/fan2_input"
+          "/sys/class/hwmon/hwmon1/fan2_input"
 //        "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq",
 //        "/proc/cpuinfo"
     };
 
 
 public slots:
-    void process(); //can be replaced by run()
+    void process();
 
 
 signals:
