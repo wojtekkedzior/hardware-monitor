@@ -9,22 +9,31 @@
 
 using namespace std;
 
-void MainWindow::onProgressChanged(QString info) {
-    double currentMax = 0;
+void MainWindow::onProgressChanged(QString rpm) {
+     double currentTemp = std::stod (rpm.toStdString(), NULL);
+
+     double min, max = 0;
 
      if (ui->fan2_max->toPlainText().toStdString().length() != 0) {
-         currentMax = std::stod (ui->fan2_max->toPlainText().toStdString(), NULL);
+         max = std::stod (ui->fan2_max->toPlainText().toStdString(), NULL);
      }
 
-     double currentTemp = std::stod (info.toStdString(), NULL);
-
-     if(currentTemp > currentMax) {
-         ui->fan2_max->setText(info);
+     //first check
+     if(ui->fan2_min->toPlainText().toStdString().length() == 0) {
+         ui->fan2_min->setText(rpm);
      } else {
-
+         min = std::stod (ui->fan2_min->toPlainText().toStdString(), NULL);
      }
 
-     ui->fan2_current->setText(info);
+     if(currentTemp > max) {
+         ui->fan2_max->setText(rpm);
+     }
+
+     if (currentTemp < min) {
+          ui->fan2_min->setText(rpm);
+     }
+
+     ui->fan2_current->setText(rpm);
 }
 
 MainWindow::MainWindow(QWidget *parent) :
