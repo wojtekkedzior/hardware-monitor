@@ -6,29 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1403</width>
-    <height>677</height>
+    <width>1522</width>
+    <height>997</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>861</width>
-      <height>108</height>
+      <x>80</x>
+      <y>50</y>
+      <width>481</width>
+      <height>21</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QTextBrowser" name="textBrowser_2"/>
+    <layout class="QGridLayout" name="fan2_layout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Fan 2</string>
+       </property>
+      </widget>
      </item>
-     <item>
-      <widget class="QTextBrowser" name="textBrowser"/>
+     <item row="0" column="3">
+      <widget class="QTextBrowser" name="fan2_max"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QTextBrowser" name="fan2_current"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QTextBrowser" name="fan2_mix"/>
      </item>
     </layout>
    </widget>
@@ -38,7 +48,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1403</width>
+     <width>1522</width>
      <height>16</height>
     </rect>
    </property>

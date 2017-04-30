@@ -14,7 +14,6 @@ class FanUpdater;
 
 class FanUpdater : public QObject
 {
-
     Q_OBJECT
 
 public :

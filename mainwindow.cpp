@@ -3,9 +3,28 @@
 
 #include <QThread>
 #include <fanupdater.h>
+#include <string>
+#include <iostream>
+
+
+using namespace std;
 
 void MainWindow::onProgressChanged(QString info) {
-    ui->textBrowser->setText(info);
+    double currentMax = 0;
+
+     if (ui->fan2_max->toPlainText().toStdString().length() != 0) {
+         currentMax = std::stod (ui->fan2_max->toPlainText().toStdString(), NULL);
+     }
+
+     double currentTemp = std::stod (info.toStdString(), NULL);
+
+     if(currentTemp > currentMax) {
+         ui->fan2_max->setText(info);
+     } else {
+
+     }
+
+     ui->fan2_current->setText(info);
 }
 
 MainWindow::MainWindow(QWidget *parent) :

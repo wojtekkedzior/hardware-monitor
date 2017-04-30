@@ -18,6 +18,11 @@
 #include <fanupdater.h>
 #include <map>
 
+#include <fstream>
+
+#include <sstream>
+#include <string>
+
 
 #define SENSORS_ERR_ACCESS_R	3 /* Can't read */
 #define SENSORS_ERR_KERNEL	4 /* Kernel interface error */
@@ -26,34 +31,34 @@
 
 using namespace std;
 
-static
-int get_type_scaling(sensors_subfeature_type type)
-{
-    /* Multipliers for subfeatures */
-    switch (type & 0xFF80) {
-    case SENSORS_SUBFEATURE_IN_INPUT:
-    case SENSORS_SUBFEATURE_TEMP_INPUT:
-    case SENSORS_SUBFEATURE_CURR_INPUT:
-    case SENSORS_SUBFEATURE_HUMIDITY_INPUT:
-        return 1000;
-    case SENSORS_SUBFEATURE_FAN_INPUT:
-        return 1;
-    case SENSORS_SUBFEATURE_POWER_AVERAGE:
-    case SENSORS_SUBFEATURE_ENERGY_INPUT:
-        return 1000000;
-    }
+//static
+//int get_type_scaling(sensors_subfeature_type type)
+//{
+//    /* Multipliers for subfeatures */
+//    switch (type & 0xFF80) {
+//    case SENSORS_SUBFEATURE_IN_INPUT:
+//    case SENSORS_SUBFEATURE_TEMP_INPUT:
+//    case SENSORS_SUBFEATURE_CURR_INPUT:
+//    case SENSORS_SUBFEATURE_HUMIDITY_INPUT:
+//        return 1000;
+//    case SENSORS_SUBFEATURE_FAN_INPUT:
+//        return 1;
+//    case SENSORS_SUBFEATURE_POWER_AVERAGE:
+//    case SENSORS_SUBFEATURE_ENERGY_INPUT:
+//        return 1000000;
+//    }
 
-    /* Multipliers for second class subfeatures
-       that need their own multiplier */
-    switch (type) {
-    case SENSORS_SUBFEATURE_POWER_AVERAGE_INTERVAL:
-    case SENSORS_SUBFEATURE_VID:
-    case SENSORS_SUBFEATURE_TEMP_OFFSET:
-        return 1000;
-    default:
-        return 1;
-    }
-}
+//    /* Multipliers for second class subfeatures
+//       that need their own multiplier */
+//    switch (type) {
+//    case SENSORS_SUBFEATURE_POWER_AVERAGE_INTERVAL:
+//    case SENSORS_SUBFEATURE_VID:
+//    case SENSORS_SUBFEATURE_TEMP_OFFSET:
+//        return 1000;
+//    default:
+//        return 1;
+//    }
+//}
 
 void FanUpdater::process(){
 
@@ -62,43 +67,18 @@ void FanUpdater::process(){
     while (true) {
         sleep(1);
 
-        double value;
         double correctValue;
-        int TEMP_IDX_MAX = 3;
-        FILE *f;
+        std::string::size_type sz;
 
-        for ( int i = 0; i < TEMP_IDX_MAX; ++i) {
-            if ( ( f = fopen( sensorFiles[i], "r"))) {
-                int res, err = 0;
+        for ( int i = 0; i < sizeof(sensorFiles); ++i) {
+            ifstream infile(sensorFiles[i]);
 
-                errno = 0;
-                res = fscanf( f, "%lf", &value);
-                if ( res == EOF && errno == EIO)
-                    err = -SENSORS_ERR_IO;
-                else if ( res != 1)
-                    err = -SENSORS_ERR_ACCESS_R;
-                res = fclose( f);
-                if ( err)
-                    // return err;
-                    printf( "%lf\n", err);
-
-                if ( res == EOF) {
-                    if ( errno == EIO)
-                        //return -SENSORS_ERR_IO;
-                        printf( "%lf\n", -SENSORS_ERR_IO);
-                    else
-                        //return -SENSORS_ERR_ACCESS_R;
-                        printf( "%lf\n", -SENSORS_ERR_ACCESS_R);
-                }
-                printf( "before: %lf\n", value);
-                correctValue = value;
-                value /= get_type_scaling( SENSORS_SUBFEATURE_TEMP_INPUT);
-
-            } else
-                //return -SENSORS_ERR_KERNEL;
-                printf( "%lf\n", -SENSORS_ERR_KERNEL);
-
-            printf( "%lf\n", value);
+            string line;
+            while (std::getline(infile, line))
+            {
+                std::istringstream iss(line);
+                correctValue = std::stod (line,&sz);
+            }
         }
 
         string varAsString = to_string(correctValue);
