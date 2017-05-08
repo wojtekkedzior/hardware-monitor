@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1522</width>
-    <height>997</height>
+    <width>1036</width>
+    <height>992</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>80</x>
       <y>50</y>
       <width>481</width>
-      <height>31</height>
+      <height>48</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="fan2_layout">
@@ -81,14 +81,381 @@
      <string>Max</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>97</y>
+      <width>481</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="fan6_layout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Fan 6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QTextBrowser" name="fan6_max"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QTextBrowser" name="fan6_current"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QTextBrowser" name="fan6_min"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>200</y>
+      <width>501</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="6" column="1">
+      <widget class="QLabel" name="cpu5_label">
+       <property name="text">
+        <string>Cpu 5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="cpu6_label">
+       <property name="text">
+        <string>Cpu 6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="cpu4_label">
+       <property name="text">
+        <string>Cpu 4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="cpu8_label">
+       <property name="text">
+        <string>Cpu 8</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Min</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Min Allowed</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QTextBrowser" name="cpu0_current">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="cpu1_label">
+       <property name="text">
+        <string>Cpu 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QTextBrowser" name="cpu0_min"/>
+     </item>
+     <item row="1" column="4">
+      <widget class="QTextBrowser" name="cpu0_max"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Max</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="cpu0_label">
+       <property name="text">
+        <string>Cpu 0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Current</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Max Allowed</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QTextBrowser" name="cpu0_min_allowed"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QTextBrowser" name="cpu1_min"/>
+     </item>
+     <item row="1" column="6">
+      <widget class="QTextBrowser" name="cpu0_max_allowed"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QTextBrowser" name="cpu1_current"/>
+     </item>
+     <item row="2" column="5">
+      <widget class="QTextBrowser" name="cpu1_min_allowed"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QTextBrowser" name="cpu1_max"/>
+     </item>
+     <item row="2" column="6">
+      <widget class="QTextBrowser" name="cpu1_max_allowed"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="cpu2_label">
+       <property name="text">
+        <string>Cpu 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="cpu9_label">
+       <property name="text">
+        <string>Cpu 9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="cpu7_label">
+       <property name="text">
+        <string>Cpu 7</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="cpu3_label">
+       <property name="text">
+        <string>Cpu 3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="cpu10_label">
+       <property name="text">
+        <string>Cpu 10</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLabel" name="cpu11_label">
+       <property name="text">
+        <string>Cpu 11</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QTextBrowser" name="cpu2_min"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QTextBrowser" name="cpu2_current"/>
+     </item>
+     <item row="11" column="3">
+      <widget class="QTextBrowser" name="cpu10_min"/>
+     </item>
+     <item row="10" column="5">
+      <widget class="QTextBrowser" name="cpu9_min_allowed"/>
+     </item>
+     <item row="7" column="2">
+      <widget class="QTextBrowser" name="cpu6_current"/>
+     </item>
+     <item row="7" column="3">
+      <widget class="QTextBrowser" name="cpu6_min"/>
+     </item>
+     <item row="5" column="4">
+      <widget class="QTextBrowser" name="cpu4_max"/>
+     </item>
+     <item row="8" column="4">
+      <widget class="QTextBrowser" name="cpu7_max"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QTextBrowser" name="cpu3_min_allowed"/>
+     </item>
+     <item row="12" column="5">
+      <widget class="QTextBrowser" name="cpu11_min_allowed"/>
+     </item>
+     <item row="9" column="6">
+      <widget class="QTextBrowser" name="cpu8_max_allowed"/>
+     </item>
+     <item row="6" column="6">
+      <widget class="QTextBrowser" name="cpu5_max_allowed"/>
+     </item>
+     <item row="11" column="2">
+      <widget class="QTextBrowser" name="cpu10_current"/>
+     </item>
+     <item row="12" column="3">
+      <widget class="QTextBrowser" name="cpu11_min"/>
+     </item>
+     <item row="10" column="3">
+      <widget class="QTextBrowser" name="cpu9_min"/>
+     </item>
+     <item row="9" column="2">
+      <widget class="QTextBrowser" name="cpu8_current"/>
+     </item>
+     <item row="12" column="2">
+      <widget class="QTextBrowser" name="cpu11_current"/>
+     </item>
+     <item row="10" column="2">
+      <widget class="QTextBrowser" name="cpu9_current"/>
+     </item>
+     <item row="9" column="3">
+      <widget class="QTextBrowser" name="cpu8_min"/>
+     </item>
+     <item row="9" column="4">
+      <widget class="QTextBrowser" name="cpu8_max"/>
+     </item>
+     <item row="9" column="5">
+      <widget class="QTextBrowser" name="cpu8_min_allowed"/>
+     </item>
+     <item row="10" column="6">
+      <widget class="QTextBrowser" name="cpu9_max_allowed"/>
+     </item>
+     <item row="11" column="5">
+      <widget class="QTextBrowser" name="cpu10_min_allowed"/>
+     </item>
+     <item row="12" column="6">
+      <widget class="QTextBrowser" name="cpu11_max_allowed"/>
+     </item>
+     <item row="11" column="6">
+      <widget class="QTextBrowser" name="cpu10_max_allowed"/>
+     </item>
+     <item row="8" column="6">
+      <widget class="QTextBrowser" name="cpu7_max_allowed"/>
+     </item>
+     <item row="8" column="5">
+      <widget class="QTextBrowser" name="cpu7_min_allowed"/>
+     </item>
+     <item row="7" column="5">
+      <widget class="QTextBrowser" name="cpu6_min_allowed"/>
+     </item>
+     <item row="7" column="6">
+      <widget class="QTextBrowser" name="cpu6_max_allowed"/>
+     </item>
+     <item row="6" column="5">
+      <widget class="QTextBrowser" name="cpu5_min_allowed"/>
+     </item>
+     <item row="5" column="5">
+      <widget class="QTextBrowser" name="cpu4_min_allowed"/>
+     </item>
+     <item row="4" column="6">
+      <widget class="QTextBrowser" name="cpu3_max_allowed"/>
+     </item>
+     <item row="8" column="3">
+      <widget class="QTextBrowser" name="cpu7_min"/>
+     </item>
+     <item row="10" column="4">
+      <widget class="QTextBrowser" name="cpu9_max"/>
+     </item>
+     <item row="11" column="4">
+      <widget class="QTextBrowser" name="cpu10_max"/>
+     </item>
+     <item row="12" column="4">
+      <widget class="QTextBrowser" name="cpu11_max"/>
+     </item>
+     <item row="4" column="2">
+      <widget class="QTextBrowser" name="cpu3_current"/>
+     </item>
+     <item row="5" column="2">
+      <widget class="QTextBrowser" name="cpu4_current"/>
+     </item>
+     <item row="6" column="3">
+      <widget class="QTextBrowser" name="cpu5_min"/>
+     </item>
+     <item row="8" column="2">
+      <widget class="QTextBrowser" name="cpu7_current"/>
+     </item>
+     <item row="6" column="2">
+      <widget class="QTextBrowser" name="cpu5_current"/>
+     </item>
+     <item row="7" column="4">
+      <widget class="QTextBrowser" name="cpu6_max"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QTextBrowser" name="cpu4_min"/>
+     </item>
+     <item row="3" column="4">
+      <widget class="QTextBrowser" name="cpu2_max"/>
+     </item>
+     <item row="5" column="6">
+      <widget class="QTextBrowser" name="cpu4_max_allowed"/>
+     </item>
+     <item row="3" column="6">
+      <widget class="QTextBrowser" name="cpu2_max_allowed"/>
+     </item>
+     <item row="3" column="5">
+      <widget class="QTextBrowser" name="cpu2_min_allowed"/>
+     </item>
+     <item row="6" column="4">
+      <widget class="QTextBrowser" name="cpu5_max"/>
+     </item>
+     <item row="4" column="4">
+      <widget class="QTextBrowser" name="cpu3_max"/>
+     </item>
+     <item row="4" column="3">
+      <widget class="QTextBrowser" name="cpu3_min"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1522</width>
-     <height>16</height>
+     <width>1036</width>
+     <height>14</height>
     </rect>
    </property>
   </widget>

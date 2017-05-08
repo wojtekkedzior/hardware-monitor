@@ -61,8 +61,7 @@ using namespace std;
 //}
 
 void FanUpdater::process(){
-
-    map<char, char> map;
+    map<string, string> map;
 
     while (true) {
         sleep(1);
@@ -70,7 +69,9 @@ void FanUpdater::process(){
         double correctValue;
         std::string::size_type sz;
 
-        for ( int i = 0; i < sizeof(sensorFiles); ++i) {
+//        cout << sizeof(sensorFiles) << endl;
+
+        for ( int i = 0; i < 2; i++) {
             ifstream infile(sensorFiles[i]);
 
             string line;
@@ -79,11 +80,20 @@ void FanUpdater::process(){
                 std::istringstream iss(line);
                 correctValue = std::stod (line,&sz);
             }
+
+            string varAsString = to_string(correctValue);
+
+            map[sensorFiles[i]] = varAsString.c_str();
+
+//            map.insert(make_pair(sensorFiles[i], varAsString.c_str()));
+
+            cout << "inserting: " << sensorFiles[i] << " and: " << varAsString.c_str();
+//            map["ada"] = 123;
         }
 
-        string varAsString = to_string(correctValue);
-        QString str = QString::fromUtf8(varAsString.c_str());
+//        string varAsString = to_string(correctValue);
+//        QString str = QString::fromUtf8(varAsString.c_str());
 
-        emit progressChanged(str);
+        emit progressChanged(map);
     }
 }

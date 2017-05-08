@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include <map>
+#include <string>
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,7 +23,8 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-    void onProgressChanged(QString info);
+    void onProgressChanged(std::map<std::string, std::string> map);
+    void cpuChanged(std::map<std::string, std::string> map);
 
 };
 

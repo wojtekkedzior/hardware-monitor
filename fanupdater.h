@@ -6,6 +6,9 @@
 
 #include <malloc.h>
 
+#include <map>
+#include <string>
+
 
 namespace Ui {
 class FanUpdater;
@@ -19,13 +22,22 @@ class FanUpdater : public QObject
 public :
 //    FanUpdater();
 //    ~FanUpdater();
+//     map<char, char> fanMap;+
+
 
 private :
-    const char* sensorFiles[36] = {
-          "/sys/class/hwmon/hwmon1/fan2_input"
+    const char* sensorFiles[2] = {
+          "/sys/class/hwmon/hwmon1/fan2_input",
+          "/sys/class/hwmon/hwmon1/fan6_input"
 //        "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq",
 //        "/proc/cpuinfo"
     };
+
+    //has something
+    ///sys/class/hwmon/hwmon1/in0
+    ///
+    /// cpu:
+    ///sys/devices/system/cpu
 
 
 public slots:
@@ -33,7 +45,7 @@ public slots:
 
 
 signals:
-    void progressChanged(const QString&);
+    void progressChanged(const std::map<std::string, std::string>&);
 
 };
 
