@@ -1,21 +1,11 @@
 #include <cputempupdater.h>
 
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-
 #include <iostream>
 #include <cstdlib>
-
-#include <memory>
-//#include "rsensor.h"
-//#include "nvidia.h"
-#include <sys/stat.h>
-#include "sensors/sensors.h"
 
 #include <stdlib.h>
 #include <unistd.h>
 
-//#include <fanupdater.h>
 #include <map>
 
 #include <fstream>
@@ -43,7 +33,7 @@ void CpuTempUpdater::process(){
             string line;
             while (std::getline(infile, line))
             {
-                std::istringstream iss(line);
+                istringstream iss(line);
                 correctValue = std::stod (line,&sz);
             }
 

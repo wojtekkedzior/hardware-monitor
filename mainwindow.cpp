@@ -1,14 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QThread>
 #include <fanupdater.h>
 #include <cpuupdater.h>
 #include <cputempupdater.h>
-#include <string>
+
+#include <QThread>
 #include <iostream>
-
-
 #include <map>
 #include <string>
 
@@ -506,22 +504,31 @@ MainWindow::MainWindow(QWidget *parent) :
     QThread* thread = new QThread;
     FanUpdater* worker = new FanUpdater();
     worker->moveToThread(thread);
-    connect(thread, SIGNAL (started()), worker, SLOT (process()));
-    connect(worker, SIGNAL (progressChanged(const std::map<std::string, std::string>&)), SLOT (onProgressChanged(const std::map<std::string, std::string>&)));
+    connect(thread, SIGNAL (started()), worker,
+                      SLOT (process()));
+    connect(worker, SIGNAL (progressChanged(const std::map<std::string, std::string>&)),
+                      SLOT (onProgressChanged(const std::map<std::string, std::string>&)));
     thread->start();
 
 
     QThread* cpuThread = new QThread;
     CpuUpdater* cpuWorker = new CpuUpdater();
     cpuWorker->moveToThread(cpuThread);
-    connect(cpuThread, SIGNAL (started()), cpuWorker, SLOT (process()));
-    connect(cpuWorker, SIGNAL (cpuChanged(const std::map<std::string, std::string>&)), SLOT (cpuChanged(const std::map<std::string, std::string>&)));
+    connect(cpuThread, SIGNAL (started()), cpuWorker,
+                         SLOT (process()));
+    connect(cpuWorker, SIGNAL (cpuChanged(const std::map<std::string, std::string>&)),
+                         SLOT (cpuChanged(const std::map<std::string, std::string>&)));
     cpuThread->start();
 
 
-
-
-
+    QThread* cpuTempThread = new QThread;
+    CpuTempUpdater* cpuTempWorker = new CpuTempUpdater();
+    cpuTempWorker->moveToThread(cpuTempThread);
+    connect(cpuTempThread, SIGNAL (started()), cpuTempWorker,
+                             SLOT (process()));
+    connect(cpuTempWorker, SIGNAL (cpuTempChanged(const std::map<std::string, std::string>&)),
+                             SLOT (cpuTempChanged(const std::map<std::string, std::string>&)));
+    cpuTempThread->start();
 }
 
 MainWindow::~MainWindow()
