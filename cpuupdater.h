@@ -21,6 +21,11 @@ class CpuUpdater : public QObject
 
 public :
 
+    //system temp
+    // /sys/class/thermal/thermal_zone0/temp
+    //proper place to get all the cpu+package temps
+    // /sys/class/hwmon/hwmon0/temp1_label
+
 
 private :
     const char* sensorFiles[36] = {

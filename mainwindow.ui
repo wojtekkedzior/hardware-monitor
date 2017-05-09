@@ -6,119 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1036</width>
-    <height>992</height>
+    <width>936</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>50</y>
-      <width>481</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="fan2_layout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Fan 2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QTextBrowser" name="fan2_max"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QTextBrowser" name="fan2_current"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QTextBrowser" name="fan2_min"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>30</y>
-      <width>45</width>
-      <height>11</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Current</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>30</y>
-      <width>45</width>
-      <height>11</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Min</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>30</y>
-      <width>45</width>
-      <height>11</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Max</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>97</y>
-      <width>481</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="fan6_layout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Fan 6</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QTextBrowser" name="fan6_max"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QTextBrowser" name="fan6_current"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QTextBrowser" name="fan6_min"/>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>200</y>
-      <width>501</width>
-      <height>601</height>
+      <x>90</x>
+      <y>180</y>
+      <width>361</width>
+      <height>251</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item row="6" column="1">
       <widget class="QLabel" name="cpu5_label">
        <property name="text">
@@ -196,16 +104,6 @@
      <item row="1" column="4">
       <widget class="QTextBrowser" name="cpu0_max"/>
      </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>Max</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1">
       <widget class="QLabel" name="cpu0_label">
        <property name="text">
@@ -223,6 +121,12 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="3">
+      <widget class="QTextBrowser" name="cpu1_min"/>
+     </item>
+     <item row="1" column="5">
+      <widget class="QTextBrowser" name="cpu0_min_allowed"/>
+     </item>
      <item row="0" column="6">
       <widget class="QLabel" name="label_11">
        <property name="text">
@@ -233,12 +137,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="5">
-      <widget class="QTextBrowser" name="cpu0_min_allowed"/>
-     </item>
-     <item row="2" column="3">
-      <widget class="QTextBrowser" name="cpu1_min"/>
-     </item>
      <item row="1" column="6">
       <widget class="QTextBrowser" name="cpu0_max_allowed"/>
      </item>
@@ -247,6 +145,9 @@
      </item>
      <item row="2" column="5">
       <widget class="QTextBrowser" name="cpu1_min_allowed"/>
+     </item>
+     <item row="11" column="5">
+      <widget class="QTextBrowser" name="cpu10_min_allowed"/>
      </item>
      <item row="2" column="4">
       <widget class="QTextBrowser" name="cpu1_max"/>
@@ -260,6 +161,9 @@
         <string>Cpu 2</string>
        </property>
       </widget>
+     </item>
+     <item row="8" column="6">
+      <widget class="QTextBrowser" name="cpu7_max_allowed"/>
      </item>
      <item row="10" column="1">
       <widget class="QLabel" name="cpu9_label">
@@ -282,12 +186,18 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="3">
+      <widget class="QTextBrowser" name="cpu2_min"/>
+     </item>
      <item row="11" column="1">
       <widget class="QLabel" name="cpu10_label">
        <property name="text">
         <string>Cpu 10</string>
        </property>
       </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QTextBrowser" name="cpu2_current"/>
      </item>
      <item row="12" column="1">
       <widget class="QLabel" name="cpu11_label">
@@ -296,20 +206,14 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="3">
-      <widget class="QTextBrowser" name="cpu2_min"/>
-     </item>
-     <item row="3" column="2">
-      <widget class="QTextBrowser" name="cpu2_current"/>
-     </item>
      <item row="11" column="3">
       <widget class="QTextBrowser" name="cpu10_min"/>
      </item>
-     <item row="10" column="5">
-      <widget class="QTextBrowser" name="cpu9_min_allowed"/>
-     </item>
      <item row="7" column="2">
       <widget class="QTextBrowser" name="cpu6_current"/>
+     </item>
+     <item row="10" column="5">
+      <widget class="QTextBrowser" name="cpu9_min_allowed"/>
      </item>
      <item row="7" column="3">
       <widget class="QTextBrowser" name="cpu6_min"/>
@@ -362,17 +266,11 @@
      <item row="10" column="6">
       <widget class="QTextBrowser" name="cpu9_max_allowed"/>
      </item>
-     <item row="11" column="5">
-      <widget class="QTextBrowser" name="cpu10_min_allowed"/>
-     </item>
      <item row="12" column="6">
       <widget class="QTextBrowser" name="cpu11_max_allowed"/>
      </item>
      <item row="11" column="6">
       <widget class="QTextBrowser" name="cpu10_max_allowed"/>
-     </item>
-     <item row="8" column="6">
-      <widget class="QTextBrowser" name="cpu7_max_allowed"/>
      </item>
      <item row="8" column="5">
       <widget class="QTextBrowser" name="cpu7_min_allowed"/>
@@ -401,11 +299,11 @@
      <item row="11" column="4">
       <widget class="QTextBrowser" name="cpu10_max"/>
      </item>
-     <item row="12" column="4">
-      <widget class="QTextBrowser" name="cpu11_max"/>
-     </item>
      <item row="4" column="2">
       <widget class="QTextBrowser" name="cpu3_current"/>
+     </item>
+     <item row="12" column="4">
+      <widget class="QTextBrowser" name="cpu11_max"/>
      </item>
      <item row="5" column="2">
       <widget class="QTextBrowser" name="cpu4_current"/>
@@ -446,6 +344,93 @@
      <item row="4" column="3">
       <widget class="QTextBrowser" name="cpu3_min"/>
      </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Max</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>100</y>
+      <width>361</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Min</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Current</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Max</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Fan 6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Fan 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTextBrowser" name="fan2_current"/>
+     </item>
+     <item row="1" column="2">
+      <widget class="QTextBrowser" name="fan2_min"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QTextBrowser" name="fan2_max"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextBrowser" name="fan6_current"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QTextBrowser" name="fan6_min"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QTextBrowser" name="fan6_max"/>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -454,7 +439,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1036</width>
+     <width>936</width>
      <height>14</height>
     </rect>
    </property>

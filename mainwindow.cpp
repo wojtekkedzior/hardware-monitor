@@ -4,6 +4,7 @@
 #include <QThread>
 #include <fanupdater.h>
 #include <cpuupdater.h>
+#include <cputempupdater.h>
 #include <string>
 #include <iostream>
 
@@ -50,7 +51,8 @@ void MainWindow::onProgressChanged(std::map<std::string, std::string> map) {
      temp = map["/sys/class/hwmon/hwmon1/fan6_input"];
 
      fan2Input_currentTemp = stod (temp, NULL);
-     min, max = 0;
+     min = 0;
+     max = 0;
 
      if (ui->fan6_max->toPlainText().toStdString().length() != 0) {
          max = std::stod (ui->fan6_max->toPlainText().toStdString(), NULL);
@@ -73,7 +75,6 @@ void MainWindow::onProgressChanged(std::map<std::string, std::string> map) {
 
      ui->fan6_current->setText(QString::fromUtf8(temp.c_str()));
 }
-
 
 void MainWindow::cpuChanged(std::map<std::string, std::string> map) {
 
@@ -117,7 +118,7 @@ void MainWindow::cpuChanged(std::map<std::string, std::string> map) {
     mhz = std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq"]);
     ui->cpu1_current->setText(QString::number(mhz/1000));
 
-    //minimum
+    //minimump
     if(ui->cpu1_min->toPlainText().toStdString().length() == 0) {
         ui->cpu1_min->setText(QString::number(mhz/1000));
     } else {
@@ -491,6 +492,9 @@ void MainWindow::cpuChanged(std::map<std::string, std::string> map) {
 
 }
 
+void MainWindow::cpuTempChanged(std::map<std::string, std::string> map) {
+
+}
 
 
 MainWindow::MainWindow(QWidget *parent) :
