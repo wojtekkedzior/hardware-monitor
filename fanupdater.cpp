@@ -87,7 +87,7 @@ void FanUpdater::process(){
 
 //            map.insert(make_pair(sensorFiles[i], varAsString.c_str()));
 
-            cout << "inserting: " << sensorFiles[i] << " and: " << varAsString.c_str();
+//            cout << "inserting: " << sensorFiles[i] << " and: " << varAsString.c_str();
 //            map["ada"] = 123;
         }
 
