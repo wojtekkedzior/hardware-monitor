@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>936</width>
-    <height>612</height>
+    <width>1331</width>
+    <height>876</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="gridLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>180</y>
-      <width>361</width>
-      <height>251</height>
+      <x>60</x>
+      <y>272</y>
+      <width>501</width>
+      <height>565</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -362,7 +362,7 @@
       <x>90</x>
       <y>100</y>
       <width>361</width>
-      <height>61</height>
+      <height>105</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
@@ -433,14 +433,259 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>180</y>
+      <width>441</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="1" column="4">
+      <widget class="QTextBrowser" name="package_max_allowed"/>
+     </item>
+     <item row="6" column="3">
+      <widget class="QTextBrowser" name="cpu4_temp_max"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QTextBrowser" name="package_max"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTextBrowser" name="package_current"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>Cpu 0</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>Cpu 5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>Max</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Min</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>Current</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>Cpu 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QTextBrowser" name="cpu0_temp_min"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QTextBrowser" name="cpu0_temp_max"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_15">
+       <property name="text">
+        <string>Package</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QTextBrowser" name="package_min"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>Cpu 4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QTextBrowser" name="cpu4_temp_current"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>Cpu 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QTextBrowser" name="cpu4_temp_min"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_22">
+       <property name="text">
+        <string>Cpu 3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QTextBrowser" name="cpu5_temp_max"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QTextBrowser" name="cpu3_temp_max"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QTextBrowser" name="cpu1_temp_min"/>
+     </item>
+     <item row="4" column="2">
+      <widget class="QTextBrowser" name="cpu2_temp_min"/>
+     </item>
+     <item row="5" column="2">
+      <widget class="QTextBrowser" name="cpu3_temp_min"/>
+     </item>
+     <item row="7" column="2">
+      <widget class="QTextBrowser" name="cpu5_temp_min"/>
+     </item>
+     <item row="3" column="3">
+      <widget class="QTextBrowser" name="cpu1_temp_max"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QTextBrowser" name="cpu3_temp_current"/>
+     </item>
+     <item row="4" column="3">
+      <widget class="QTextBrowser" name="cpu2_temp_max"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QTextBrowser" name="cpu2_temp_current"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTextBrowser" name="cpu1_temp_current"/>
+     </item>
+     <item row="7" column="1">
+      <widget class="QTextBrowser" name="cpu5_temp_current"/>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="label_24">
+       <property name="text">
+        <string>Critical</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextBrowser" name="cpu0_temp_current"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_23">
+       <property name="text">
+        <string>Max allowed</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QTextBrowser" name="cpu1_temp_max_allowed"/>
+     </item>
+     <item row="4" column="4">
+      <widget class="QTextBrowser" name="cpu2_temp_max_allowed"/>
+     </item>
+     <item row="7" column="5">
+      <widget class="QTextBrowser" name="cpu5_temp_critical"/>
+     </item>
+     <item row="7" column="4">
+      <widget class="QTextBrowser" name="cpu5_temp_max_allowed"/>
+     </item>
+     <item row="5" column="5">
+      <widget class="QTextBrowser" name="cpu3_temp_critical"/>
+     </item>
+     <item row="6" column="5">
+      <widget class="QTextBrowser" name="cpu4_temp_critical"/>
+     </item>
+     <item row="1" column="5">
+      <widget class="QTextBrowser" name="package_critical"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QTextBrowser" name="cpu0_temp_max_allowed"/>
+     </item>
+     <item row="6" column="4">
+      <widget class="QTextBrowser" name="cpu4_temp_max_allowed"/>
+     </item>
+     <item row="5" column="4">
+      <widget class="QTextBrowser" name="cpu3_temp_max_allowed"/>
+     </item>
+     <item row="2" column="5">
+      <widget class="QTextBrowser" name="cpu0_temp_critical"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QTextBrowser" name="cpu2_temp_critical"/>
+     </item>
+     <item row="3" column="5">
+      <widget class="QTextBrowser" name="cpu1_temp_critical"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>90</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>90</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Temp offset</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>936</width>
-     <height>14</height>
+     <width>1331</width>
+     <height>16</height>
     </rect>
    </property>
   </widget>
