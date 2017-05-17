@@ -74,654 +74,136 @@ void MainWindow::onProgressChanged(std::map<std::string, std::string> map) {
      ui->fan6_current->setText(QString::fromUtf8(temp.c_str()));
 }
 
+void updateSensorValues (QTextBrowser* current, QTextBrowser* min, QTextBrowser* max, QTextBrowser* maxAllowed, QTextBrowser* critical, int inputTemp, int maxTemp, int criticalTemp) {
+    int _min, _max = 0;
+
+    current->setText(QString::number(inputTemp/1000));
+
+    //minimum
+    if(min->toPlainText().toStdString().length() == 0) {
+        min->setText(QString::number(inputTemp/1000));
+    } else {
+        _min = std::stoi (min->toPlainText().toStdString(), NULL);
+    }
+
+    if((inputTemp/1000) < _min) {
+        min->setText(QString::number(inputTemp/1000));
+    }
+
+    //maximum
+    if(max->toPlainText().toStdString().length() == 0) {
+        max->setText(QString::number(inputTemp/1000));
+    } else {
+        _max = std::stoi (max->toPlainText().toStdString(), NULL);
+    }
+
+    if((inputTemp/1000) > _max) {
+        max->setText(QString::number(inputTemp/1000));
+    }
+
+    maxAllowed->setText(QString::number(maxTemp/1000));
+    critical->setText(QString::number(criticalTemp/1000));
+}
+
+
 void MainWindow::cpuChanged(std::map<std::string, std::string> map) {
-
-    int min, max = 0;
-
-
-    //CPU 0
-    int mhz = std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu0_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu0_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu0_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu0_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu0_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu0_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu0_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu0_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu0_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu0_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu0_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 1
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu1_current->setText(QString::number(mhz/1000));
-
-    //minimump
-    if(ui->cpu1_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu1_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu1_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu1_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu1_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu1_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu1_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu1_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu1_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu1_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 2
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu2_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu2_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu2_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu2_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu2_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu2_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu2_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu2_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu2_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu2_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu2_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 3
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu3_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu3_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu3_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu3_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu3_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu3_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu3_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu3_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu3_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu3_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu3_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 4
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu4_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu4_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu4_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu4_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu4_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu4_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu4_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu4_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu4_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu4_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu4_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 5
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu5_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu5_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu5_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu5_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu5_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu5_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu5_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu5_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu5_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu5_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu5_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 6
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu6_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu6_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu6_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu6_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu6_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu6_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu6_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu6_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu6_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu6_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu6_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 7
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu7_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu7_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu7_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu7_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu7_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu7_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu7_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu7_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu7_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu7_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu7_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 8
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu8_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu8_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu8_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu8_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu8_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu8_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu8_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu8_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu8_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu8_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu8_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 9
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu9_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu9_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu9_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu9_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu9_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu9_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu9_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu9_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu9_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu9_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu9_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 10
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu10_current->setText(QString::number(mhz/1000));
-
-
-    //minimum
-    if(ui->cpu10_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu10_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu10_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu10_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu10_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu10_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu10_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu10_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu10_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu10_min_allowed->setText(QString::number(mhz/1000));
-
-
-    //CPU 11
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_cur_freq"]);
-    ui->cpu11_current->setText(QString::number(mhz/1000));
-
-    //minimum
-    if(ui->cpu11_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu11_min->setText(QString::number(mhz/1000));
-    } else {
-        min = std::stoi (ui->cpu11_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) < min) {
-        ui->cpu11_min->setText(QString::number(mhz/1000));
-    }
-
-    //maximum
-    if(ui->cpu11_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu11_max->setText(QString::number(mhz/1000));
-    } else {
-        max = std::stoi (ui->cpu11_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((mhz/1000) > max) {
-        ui->cpu11_max->setText(QString::number(mhz/1000));
-    }
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_max_freq"]);
-    ui->cpu11_max_allowed->setText(QString::number(mhz/1000));
-
-    mhz = std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_min_freq"]);
-    ui->cpu11_min_allowed->setText(QString::number(mhz/1000));
-
+    updateSensorValues(ui->cpu0_current, ui->cpu0_min, ui->cpu0_max, ui->cpu0_max_allowed, ui->cpu0_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu1_current, ui->cpu1_min, ui->cpu1_max, ui->cpu1_max_allowed, ui->cpu1_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu2_current, ui->cpu2_min, ui->cpu2_max, ui->cpu2_max_allowed, ui->cpu2_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu3_current, ui->cpu3_min, ui->cpu3_max, ui->cpu3_max_allowed, ui->cpu3_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu4_current, ui->cpu4_min, ui->cpu4_max, ui->cpu4_max_allowed, ui->cpu4_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu5_current, ui->cpu5_min, ui->cpu5_max, ui->cpu5_max_allowed, ui->cpu5_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu6_current, ui->cpu6_min, ui->cpu6_max, ui->cpu6_max_allowed, ui->cpu6_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu7_current, ui->cpu7_min, ui->cpu7_max, ui->cpu7_max_allowed, ui->cpu7_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu8_current, ui->cpu8_min, ui->cpu8_max, ui->cpu8_max_allowed, ui->cpu8_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu9_current, ui->cpu9_min, ui->cpu9_max, ui->cpu9_max_allowed, ui->cpu9_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu10_current, ui->cpu10_min, ui->cpu10_max, ui->cpu10_max_allowed, ui->cpu10_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_min_freq"]));
+
+    updateSensorValues(ui->cpu11_current, ui->cpu11_min, ui->cpu11_max, ui->cpu11_max_allowed, ui->cpu11_min_allowed,
+        std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_cur_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_max_freq"]),
+        std::stoi(map["/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_min_freq"]));
 }
 
 void MainWindow::cpuTempChanged(std::map<std::string, std::string> map) {
-    int min, max = 0;
-
-    //Package
-    int temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp1_input"]);
-    ui->package_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->package_min->toPlainText().toStdString().length() == 0) {
-        ui->package_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->package_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->package_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->package_max->toPlainText().toStdString().length() == 0) {
-        ui->package_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->package_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->package_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp1_max"]);
-    ui->package_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp1_crit"]);
-    ui->package_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 0
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp2_input"]);
-    ui->cpu0_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu0_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu0_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu0_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu0_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu0_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu0_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu0_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu0_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp2_max"]);
-    ui->cpu0_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp2_crit"]);
-    ui->cpu0_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 1
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp3_input"]);
-    ui->cpu1_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu1_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu1_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu1_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu1_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu1_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu1_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu1_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu1_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp3_max"]);
-    ui->cpu1_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp3_crit"]);
-    ui->cpu1_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 2
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp4_input"]);
-    ui->cpu2_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu2_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu2_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu2_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu2_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu2_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu2_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu2_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu2_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp4_max"]);
-    ui->cpu2_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp4_crit"]);
-    ui->cpu2_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 3
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp5_input"]);
-    ui->cpu3_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu3_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu3_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu3_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu3_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu3_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu3_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu3_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu3_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp5_max"]);
-    ui->cpu3_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp5_crit"]);
-    ui->cpu3_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 4
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp6_input"]);
-    ui->cpu4_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu4_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu4_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu4_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu4_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu4_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu4_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu4_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu4_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp6_max"]);
-    ui->cpu4_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp6_crit"]);
-    ui->cpu4_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-    //CPU 5
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp7_input"]);
-    ui->cpu5_temp_current->setText(QString::number(temperature/1000));
-
-    //minimum
-    if(ui->cpu5_temp_min->toPlainText().toStdString().length() == 0) {
-        ui->cpu5_temp_min->setText(QString::number(temperature/1000));
-    } else {
-        min = std::stoi (ui->cpu5_temp_min->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) < min) {
-        ui->cpu5_temp_min->setText(QString::number(temperature/1000));
-    }
-
-    //maximum
-    if(ui->cpu5_temp_max->toPlainText().toStdString().length() == 0) {
-        ui->cpu5_temp_max->setText(QString::number(temperature/1000));
-    } else {
-        max = std::stoi (ui->cpu5_temp_max->toPlainText().toStdString(), NULL);
-    }
-
-    if((temperature/1000) > max) {
-        ui->cpu5_temp_max->setText(QString::number(temperature/1000));
-    }
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp7_max"]);
-    ui->cpu5_temp_max_allowed->setText(QString::number(temperature/1000));
-
-    temperature = std::stoi(map["/sys/class/hwmon/hwmon0/temp7_crit"]);
-    ui->cpu5_temp_critical->setText(QString::number(temperature/1000));
-
-
-
-
-
+    updateSensorValues(ui->package_current, ui->package_min, ui->package_max, ui->package_max_allowed, ui->package_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp1_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp1_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp1_crit"]));
+
+    updateSensorValues(ui->cpu0_temp_current, ui->cpu0_temp_min, ui->cpu0_temp_max, ui->cpu0_temp_max_allowed, ui->cpu0_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp2_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp2_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp2_crit"]));
+
+    updateSensorValues(ui->cpu1_temp_current, ui->cpu1_temp_min, ui->cpu1_temp_max, ui->cpu1_temp_max_allowed, ui->cpu1_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp3_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp3_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp3_crit"]));
+
+    updateSensorValues(ui->cpu2_temp_current, ui->cpu2_temp_min, ui->cpu2_temp_max, ui->cpu2_temp_max_allowed, ui->cpu2_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp4_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp4_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp4_crit"]));
+
+    updateSensorValues(ui->cpu3_temp_current, ui->cpu3_temp_min, ui->cpu3_temp_max, ui->cpu3_temp_max_allowed, ui->cpu3_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp5_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp5_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp5_crit"]));
+
+    updateSensorValues(ui->cpu4_temp_current, ui->cpu4_temp_min, ui->cpu4_temp_max, ui->cpu4_temp_max_allowed, ui->cpu4_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp6_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp6_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp6_crit"]));
+
+    updateSensorValues(ui->cpu5_temp_current, ui->cpu5_temp_min, ui->cpu5_temp_max, ui->cpu5_temp_max_allowed, ui->cpu5_temp_critical,
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp7_input"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp7_max"]),
+        std::stoi(map["/sys/class/hwmon/hwmon0/temp7_crit"]));
 }
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
