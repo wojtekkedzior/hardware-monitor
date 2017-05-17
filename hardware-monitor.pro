@@ -28,12 +28,12 @@ CONFIG += console
 SOURCES += main.cpp\
         mainwindow.cpp \
     fanupdater.cpp \
-    cpuupdater.cpp \
-    cputempupdater.cpp
+    cputempupdater.cpp \
+    cpufrqupdater.cpp
 
 HEADERS  += mainwindow.h \
     fanupdater.h \
-    cpuupdater.h \
-    cputempupdater.h
+    cputempupdater.h \
+    cpufrqupdater.h
 
 FORMS    += mainwindow.ui

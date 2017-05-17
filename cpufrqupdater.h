@@ -1,5 +1,5 @@
-#ifndef CPUUPDATER_H
-#define CPUUPDATER_H
+#ifndef CPUFRQUPDATER_H
+#define CPUFRQUPDATER_H
 
 #include <QObject>
 #include <QThread>
@@ -11,11 +11,11 @@
 
 
 namespace Ui {
-class CpuUpdater;
+class CpuFrqUpdater;
 }
 
 
-class CpuUpdater : public QObject
+class CpuFrqUpdater : public QObject
 {
     Q_OBJECT
 
@@ -83,10 +83,10 @@ public slots:
 
 
 signals:
-    void cpuChanged(const std::map<std::string, std::string>&);
+    void cpuFrqChanged(const std::map<std::string, std::string>&);
 
 };
 
 
 
-#endif // CPUUPDATER_H
+#endif // CPUFRQUPDATER_H

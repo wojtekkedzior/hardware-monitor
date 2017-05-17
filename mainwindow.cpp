@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <fanupdater.h>
-#include <cpuupdater.h>
+#include <cpufrqupdater.h>
 #include <cputempupdater.h>
 
 #include <QThread>
@@ -101,7 +101,7 @@ void updateSensorValues (QTextBrowser* current, QTextBrowser* min, QTextBrowser*
 }
 
 
-void MainWindow::cpuChanged(std::map<std::string, std::string> map) {
+void MainWindow::cpuFrqChanged(std::map<std::string, std::string> map) {
     updateSensorValues(ui->cpu0_current, ui->cpu0_min, ui->cpu0_max, ui->cpu0_max_allowed, ui->cpu0_min_allowed,
         stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"]),
         stoi(map["/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"]),
@@ -216,14 +216,14 @@ MainWindow::MainWindow(QWidget *parent) :
     thread->start();
 
 
-    QThread* cpuThread = new QThread;
-    CpuUpdater* cpuWorker = new CpuUpdater();
-    cpuWorker->moveToThread(cpuThread);
-    connect(cpuThread, SIGNAL (started()), cpuWorker,
+    QThread* cpuFrqThread = new QThread;
+    CpuFrqUpdater* cpuFrqWorker = new CpuFrqUpdater();
+    cpuFrqWorker->moveToThread(cpuFrqThread);
+    connect(cpuFrqThread, SIGNAL (started()), cpuFrqWorker,
                          SLOT (process()));
-    connect(cpuWorker, SIGNAL (cpuChanged(const std::map<std::string, std::string>&)),
-                         SLOT (cpuChanged(const std::map<std::string, std::string>&)));
-    cpuThread->start();
+    connect(cpuFrqWorker, SIGNAL (cpuFrqChanged(const std::map<std::string, std::string>&)),
+                         SLOT (cpuFrqChanged(const std::map<std::string, std::string>&)));
+    cpuFrqThread->start();
 
 
     QThread* cpuTempThread = new QThread;

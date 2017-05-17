@@ -24,7 +24,7 @@ private:
 
 public slots:
     void onProgressChanged(std::map<std::string, std::string> map);
-    void cpuChanged(std::map<std::string, std::string> map);
+    void cpuFrqChanged(std::map<std::string, std::string> map);
     void cpuTempChanged(std::map<std::string, std::string> map);
 };
 
