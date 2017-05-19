@@ -104,6 +104,14 @@ void updateSensorValues (QTextBrowser* current, QTextBrowser* min, QTextBrowser*
     extraReadingTwo->setText(QString::number(extraReadingTwo_value/1000));
 }
 
+/**
+ * Do something when the max Mhz is exceeded.
+ * @brief alertWhenOverMaxMhz
+ */
+void alertWhenOverMaxMhz() {
+
+}
+
 
 void MainWindow::cpuFrqChanged(std::map<std::string, std::string> map) {
     updateSensorValues(ui->cpu0_current, ui->cpu0_min, ui->cpu0_max, ui->cpu0_max_allowed, ui->cpu0_min_allowed,
