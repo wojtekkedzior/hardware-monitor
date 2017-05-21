@@ -21,6 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void alertWhenOverMaxMhz();
 
 public slots:
     void onProgressChanged(std::map<std::string, std::string> map);

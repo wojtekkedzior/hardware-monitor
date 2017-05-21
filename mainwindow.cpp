@@ -5,6 +5,8 @@
 #include <cpufrqupdater.h>
 #include <cputempupdater.h>
 
+#include <QMessageBox>
+
 #include <QThread>
 #include <iostream>
 #include <map>
@@ -108,8 +110,11 @@ void updateSensorValues (QTextBrowser* current, QTextBrowser* min, QTextBrowser*
  * Do something when the max Mhz is exceeded.
  * @brief alertWhenOverMaxMhz
  */
-void alertWhenOverMaxMhz() {
-
+void MainWindow::alertWhenOverMaxMhz() {
+    QMessageBox::information(
+        this,
+        tr("Application Name"),
+        tr("An information message.") );
 }
 
 

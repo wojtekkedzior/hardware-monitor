@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1331</width>
-    <height>876</height>
+    <width>1416</width>
+    <height>929</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -446,6 +446,18 @@
      <property name="spacing">
       <number>0</number>
      </property>
+     <item row="7" column="5">
+      <widget class="QTextBrowser" name="cpu5_temp_critical"/>
+     </item>
+     <item row="3" column="4">
+      <widget class="QTextBrowser" name="cpu1_temp_max_allowed"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QTextBrowser" name="cpu0_temp_max_allowed"/>
+     </item>
+     <item row="6" column="5">
+      <widget class="QTextBrowser" name="cpu4_temp_critical"/>
+     </item>
      <item row="1" column="4">
       <widget class="QTextBrowser" name="package_max_allowed"/>
      </item>
@@ -454,9 +466,6 @@
      </item>
      <item row="1" column="3">
       <widget class="QTextBrowser" name="package_max"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextBrowser" name="package_current"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_16">
@@ -515,6 +524,9 @@
      <item row="2" column="2">
       <widget class="QTextBrowser" name="cpu0_temp_min"/>
      </item>
+     <item row="1" column="2">
+      <widget class="QTextBrowser" name="package_min"/>
+     </item>
      <item row="2" column="3">
       <widget class="QTextBrowser" name="cpu0_temp_max"/>
      </item>
@@ -525,9 +537,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QTextBrowser" name="package_min"/>
-     </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_19">
        <property name="text">
@@ -536,7 +545,14 @@
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QTextBrowser" name="cpu4_temp_current"/>
+      <widget class="QTextBrowser" name="cpu4_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QTextBrowser" name="cpu4_temp_min"/>
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_18">
@@ -545,8 +561,11 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="2">
-      <widget class="QTextBrowser" name="cpu4_temp_min"/>
+     <item row="7" column="3">
+      <widget class="QTextBrowser" name="cpu5_temp_max"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QTextBrowser" name="cpu3_temp_max"/>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_22">
@@ -554,12 +573,6 @@
         <string>Cpu 3</string>
        </property>
       </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QTextBrowser" name="cpu5_temp_max"/>
-     </item>
-     <item row="5" column="3">
-      <widget class="QTextBrowser" name="cpu3_temp_max"/>
      </item>
      <item row="3" column="2">
       <widget class="QTextBrowser" name="cpu1_temp_min"/>
@@ -577,19 +590,42 @@
       <widget class="QTextBrowser" name="cpu1_temp_max"/>
      </item>
      <item row="5" column="1">
-      <widget class="QTextBrowser" name="cpu3_temp_current"/>
+      <widget class="QTextBrowser" name="cpu3_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
      </item>
      <item row="4" column="3">
       <widget class="QTextBrowser" name="cpu2_temp_max"/>
      </item>
      <item row="4" column="1">
-      <widget class="QTextBrowser" name="cpu2_temp_current"/>
+      <widget class="QTextBrowser" name="cpu2_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QTextBrowser" name="cpu1_temp_current"/>
+      <widget class="QTextBrowser" name="cpu1_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QTextBrowser" name="cpu5_temp_current"/>
+      <widget class="QTextBrowser" name="cpu5_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextBrowser" name="cpu0_temp_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
      </item>
      <item row="0" column="5">
       <widget class="QLabel" name="label_24">
@@ -601,8 +637,8 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QTextBrowser" name="cpu0_temp_current"/>
+     <item row="4" column="4">
+      <widget class="QTextBrowser" name="cpu2_temp_max_allowed"/>
      </item>
      <item row="0" column="4">
       <widget class="QLabel" name="label_23">
@@ -614,29 +650,14 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="4">
-      <widget class="QTextBrowser" name="cpu1_temp_max_allowed"/>
-     </item>
-     <item row="4" column="4">
-      <widget class="QTextBrowser" name="cpu2_temp_max_allowed"/>
-     </item>
-     <item row="7" column="5">
-      <widget class="QTextBrowser" name="cpu5_temp_critical"/>
-     </item>
      <item row="7" column="4">
       <widget class="QTextBrowser" name="cpu5_temp_max_allowed"/>
      </item>
      <item row="5" column="5">
       <widget class="QTextBrowser" name="cpu3_temp_critical"/>
      </item>
-     <item row="6" column="5">
-      <widget class="QTextBrowser" name="cpu4_temp_critical"/>
-     </item>
      <item row="1" column="5">
       <widget class="QTextBrowser" name="package_critical"/>
-     </item>
-     <item row="2" column="4">
-      <widget class="QTextBrowser" name="cpu0_temp_max_allowed"/>
      </item>
      <item row="6" column="4">
       <widget class="QTextBrowser" name="cpu4_temp_max_allowed"/>
@@ -652,6 +673,13 @@
      </item>
      <item row="3" column="5">
       <widget class="QTextBrowser" name="cpu1_temp_critical"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTextBrowser" name="package_current">
+       <property name="styleSheet">
+        <string notr="true">background.rgb(255, 255, 0)</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -684,7 +712,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1331</width>
+     <width>1416</width>
      <height>14</height>
     </rect>
    </property>
