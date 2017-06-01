@@ -85,32 +85,32 @@ void MainWindow::updateSensorValues (QTextBrowser* current, QTextBrowser* min, Q
     }
 
     int _min, _max;
-    int reading = stoi(str_reading);
+    int reading = (stoi(str_reading) / 1000) + offset;
     int extraReadingOne_value = stoi(str_extraReadingOne_value);
     int extraReadingTwo_value = stoi(str_extraReadingTwo_value);
 
-    current->setText(QString::number((reading/1000) + offset));
+    current->setText(QString::number(reading));
 
     //minimum
     if(min->toPlainText().toStdString().length() == 0) {
-        min->setText(QString::number((reading/1000) + offset));
+        min->setText(QString::number(reading));
     } else {
         _min = stoi (min->toPlainText().toStdString()) ;
     }
 
-    if(((reading/1000) + offset) < _min) {
-        min->setText(QString::number((reading/1000) + offset));
+    if(reading < _min) {
+        min->setText(QString::number(reading));
     }
 
     //maximum
     if(max->toPlainText().toStdString().length() == 0) {
-        max->setText(QString::number((reading/1000) + offset));
+        max->setText(QString::number(reading));
     } else {
         _max = stoi (max->toPlainText().toStdString());
     }
 
-    if(((reading/1000) + offset) > _max) {
-        max->setText(QString::number((reading/1000) + offset));
+    if(reading > _max) {
+        max->setText(QString::number(reading));
     }
 
     extraReadingOne->setText(QString::number(extraReadingOne_value/1000));
