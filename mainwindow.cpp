@@ -74,7 +74,6 @@ void MainWindow::onProgressChanged(std::map<std::string, std::string> map) {
 void MainWindow::updateSensorValues (QTextBrowser* current, QTextBrowser* min, QTextBrowser* max, QTextBrowser* extraReadingOne, QTextBrowser* extraReadingTwo,
                          string str_reading, string str_extraReadingOne_value, string str_extraReadingTwo_value, bool useOffset) {
 
-
     int offset = 0;
 
     if(useOffset) {
@@ -96,7 +95,7 @@ void MainWindow::updateSensorValues (QTextBrowser* current, QTextBrowser* min, Q
     if(min->toPlainText().toStdString().length() == 0) {
         min->setText(QString::number((reading/1000) + offset));
     } else {
-        _min = stoi (min->toPlainText().toStdString(), NULL);
+        _min = stoi (min->toPlainText().toStdString()) ;
     }
 
     if(((reading/1000) + offset) < _min) {
@@ -107,7 +106,7 @@ void MainWindow::updateSensorValues (QTextBrowser* current, QTextBrowser* min, Q
     if(max->toPlainText().toStdString().length() == 0) {
         max->setText(QString::number((reading/1000) + offset));
     } else {
-        _max = stoi (max->toPlainText().toStdString(), NULL);
+        _max = stoi (max->toPlainText().toStdString());
     }
 
     if(((reading/1000) + offset) > _max) {
@@ -272,5 +271,31 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_temp_offset_value_textChanged()
 {
+    ui->package_current->clear();
+    ui->package_min->clear();
+    ui->package_max->clear();
 
+    ui->cpu0_temp_current->clear();
+    ui->cpu0_temp_min->clear();
+    ui->cpu0_temp_max->clear();
+
+    ui->cpu1_temp_current->clear();
+    ui->cpu1_temp_min->clear();
+    ui->cpu1_temp_max->clear();
+
+    ui->cpu2_temp_current->clear();
+    ui->cpu2_temp_min->clear();
+    ui->cpu2_temp_max->clear();
+
+    ui->cpu3_temp_current->clear();
+    ui->cpu3_temp_min->clear();
+    ui->cpu3_temp_max->clear();
+
+    ui->cpu4_temp_current->clear();
+    ui->cpu4_temp_min->clear();
+    ui->cpu4_temp_max->clear();
+
+    ui->cpu5_temp_current->clear();
+    ui->cpu5_temp_min->clear();
+    ui->cpu5_temp_max->clear();
 }
