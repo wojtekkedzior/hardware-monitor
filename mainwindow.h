@@ -8,6 +8,10 @@
 
 #include <QTextBrowser>
 
+#include <fanupdater.h>
+#include <cpufrqupdater.h>
+#include <cputempupdater.h>
+
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +26,11 @@ public:
     ~MainWindow();
 
 private:
+    FanUpdater* worker;
+    CpuFrqUpdater* cpuFrqWorker;
+    CpuTempUpdater* cpuTempWorker;
+
+
     Ui::MainWindow *ui;
     void alertWhenOverMaxMhz();
     void updateSensorValues(QTextBrowser* current,
@@ -40,6 +49,7 @@ public slots:
     void cpuTempChanged(std::map<std::string, std::string> map);
 private slots:
     void on_temp_offset_value_textChanged();
+    void on_update_frequency_textChanged();
 };
 
 #endif // MAINWINDOW_H

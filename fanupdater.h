@@ -20,6 +20,7 @@ class FanUpdater : public QObject
     Q_OBJECT
 
 public :
+     int updateCheckFrequency(int);
 //    FanUpdater();
 //    ~FanUpdater();
 //     map<char, char> fanMap;+

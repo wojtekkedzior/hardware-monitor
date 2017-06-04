@@ -235,7 +235,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     QThread* thread = new QThread;
-    FanUpdater* worker = new FanUpdater();
+    worker = new FanUpdater();
     worker->moveToThread(thread);
     connect(thread, SIGNAL (started()), worker,
                       SLOT (process()));
@@ -245,7 +245,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     QThread* cpuFrqThread = new QThread;
-    CpuFrqUpdater* cpuFrqWorker = new CpuFrqUpdater();
+    cpuFrqWorker = new CpuFrqUpdater();
     cpuFrqWorker->moveToThread(cpuFrqThread);
     connect(cpuFrqThread, SIGNAL (started()), cpuFrqWorker,
                          SLOT (process()));
@@ -255,7 +255,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     QThread* cpuTempThread = new QThread;
-    CpuTempUpdater* cpuTempWorker = new CpuTempUpdater();
+    cpuTempWorker = new CpuTempUpdater();
     cpuTempWorker->moveToThread(cpuTempThread);
     connect(cpuTempThread, SIGNAL (started()), cpuTempWorker,
                              SLOT (process()));
@@ -298,4 +298,17 @@ void MainWindow::on_temp_offset_value_textChanged()
     ui->cpu5_temp_current->clear();
     ui->cpu5_temp_min->clear();
     ui->cpu5_temp_max->clear();
+}
+
+void MainWindow::on_update_frequency_textChanged()
+{
+    int newtime = 1;
+
+    if(ui->update_frequency->toPlainText().toStdString().length() != 0) {
+        newtime = ui->update_frequency->toPlainText().toInt();
+    }
+
+    cpuTempWorker->updateCheckFrequency(newtime);
+    cpuFrqWorker->updateCheckFrequency(newtime);
+    worker->updateCheckFrequency(newtime);
 }

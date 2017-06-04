@@ -8,11 +8,13 @@
 
 using namespace std;
 
+int sleepFor = 1;
+
 void FanUpdater::process(){
     map<string, string> map;
 
     while (true) {
-        sleep(1);
+        sleep(sleepFor);
 
         for ( int i = 0; i < 2; i++) {
             ifstream infile(sensorFiles[i]);
@@ -25,4 +27,8 @@ void FanUpdater::process(){
 
         emit progressChanged(map);
     }
+}
+
+int FanUpdater::updateCheckFrequency(int newValue) {
+    sleepFor = newValue;
 }

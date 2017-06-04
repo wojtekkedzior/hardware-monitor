@@ -20,6 +20,7 @@ class CpuFrqUpdater : public QObject
     Q_OBJECT
 
 public :
+     int updateCheckFrequency(int);
 
     //system temp
     // /sys/class/thermal/thermal_zone0/temp
