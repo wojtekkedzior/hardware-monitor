@@ -9,13 +9,13 @@
 
 using namespace std;
 
-int sleepFor1 = 1;
+int cpuFreqSleepFor = 1;
 
 void CpuFrqUpdater::process(){
     map<string, string> map;
 
     while (true) {
-        sleep(sleepFor1);
+        sleep(cpuFreqSleepFor);
 
         for ( int i = 0; i < 36; i++) {
             ifstream infile(sensorFiles[i]);
@@ -31,6 +31,6 @@ void CpuFrqUpdater::process(){
     }
 }
 
-int CpuFrqUpdater::updateCheckFrequency(int newValue) {
-    sleepFor1 = newValue;
+int CpuFrqUpdater::updateCheckFrequency(int newSleepValue) {
+    cpuFreqSleepFor = newSleepValue;
 }

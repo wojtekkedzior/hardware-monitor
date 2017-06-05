@@ -8,13 +8,13 @@
 
 using namespace std;
 
-int sleepFor2 = 1;
+int cpuTempSleepFor = 1;
 
 void CpuTempUpdater::process(){
     map<string, string> map;
 
     while (true) {
-        sleep(sleepFor2);
+        sleep(cpuTempSleepFor);
 
         for ( int i = 0; i < 21; i++) {
             ifstream infile(sensorFiles[i]);
@@ -31,5 +31,5 @@ void CpuTempUpdater::process(){
 }
 
 int CpuTempUpdater::updateCheckFrequency(int newValue) {
-    sleepFor2 = newValue;
+    cpuTempSleepFor = newValue;
 }
