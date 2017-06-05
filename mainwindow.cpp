@@ -262,6 +262,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(cpuTempWorker, SIGNAL (cpuTempChanged(const std::map<std::string, std::string>&)),
                              SLOT (cpuTempChanged(const std::map<std::string, std::string>&)));
     cpuTempThread->start();
+
+    ui->temp_offset_value->setText(QString::number(0));
+    ui->update_frequency->setText(QString::number(1));
+
 }
 
 MainWindow::~MainWindow()
