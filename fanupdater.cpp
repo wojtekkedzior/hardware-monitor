@@ -23,6 +23,8 @@ void FanUpdater::process(){
             while (getline(infile, line)) {
                   map[sensorFiles[i]] = line;
             }
+
+            infile.close();
         }
 
         emit progressChanged(map);

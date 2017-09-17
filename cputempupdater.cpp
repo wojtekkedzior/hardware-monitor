@@ -24,6 +24,8 @@ void CpuTempUpdater::process(){
             {
                 map[sensorFiles[i]] = line;
             }
+
+            infile.close();
         }
 
         emit cpuTempChanged(map);

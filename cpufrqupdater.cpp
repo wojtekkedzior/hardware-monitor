@@ -25,6 +25,8 @@ void CpuFrqUpdater::process(){
             {
                 map[sensorFiles[i]] = line;
             }
+
+            infile.close();
         }
 
         emit cpuFrqChanged(map);
