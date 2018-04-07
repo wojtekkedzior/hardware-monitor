@@ -6,9 +6,6 @@
 #include <fstream>
 #include <string>
 
-#include <iostream>
-
-
 using namespace std;
 
 int cpuFreqSleepFor = 1;
@@ -19,16 +16,46 @@ void CpuFrqUpdater::process(){
     while (true) {
         sleep(cpuFreqSleepFor);
 
-        for ( int i = 0; i < 36; i++) {
-            ifstream infile(sensorFiles[i]);
+        for ( int i = 0; i <= 11; i++) {
+            string filedir = "/sys/devices/system/cpu/cpufreq/policy";
+            filedir.append( std::to_string(i));
+            filedir.append("/scaling_cur_freq");
+
+            ifstream cpuCurFreqFile(filedir);
 
             string line;
-            while (getline(infile, line))
+            while (getline(cpuCurFreqFile, line))
             {
-                map[sensorFiles[i]] = line;
+                map[filedir] = line;
             }
 
-            infile.close();
+            cpuCurFreqFile.close();
+
+            filedir = "/sys/devices/system/cpu/cpufreq/policy";
+            filedir.append( std::to_string(i));
+            filedir.append("/scaling_min_freq");
+
+            ifstream cpuMinFreqFile(filedir);
+
+            while (getline(cpuMinFreqFile, line))
+            {
+                map[filedir] = line;
+            }
+
+            cpuMinFreqFile.close();
+
+            filedir = "/sys/devices/system/cpu/cpufreq/policy";
+            filedir.append( std::to_string(i));
+            filedir.append("/scaling_max_freq");
+
+            ifstream cpuMaxFreqFile(filedir);
+
+            while (getline(cpuMaxFreqFile, line))
+            {
+                map[filedir] = line;
+            }
+
+            cpuMaxFreqFile.close();
         }
 
         emit cpuFrqChanged(map);

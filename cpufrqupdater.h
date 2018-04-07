@@ -1,4 +1,5 @@
 #ifndef CPUFRQUPDATER_H
+    static const char*  cpu0CurFreq = "/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq";
 #define CPUFRQUPDATER_H
 
 #include <QObject>
@@ -9,11 +10,9 @@
 #include <map>
 #include <string>
 
-
 namespace Ui {
 class CpuFrqUpdater;
 }
-
 
 class CpuFrqUpdater : public QObject
 {
@@ -27,10 +26,10 @@ public :
     //proper place to get all the cpu+package temps
     // /sys/class/hwmon/hwmon0/temp1_label
 
-
 private :
+
     const char* sensorFiles[36] = {
-        "/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq",
+        cpu0CurFreq,
         "/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq",
         "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
 

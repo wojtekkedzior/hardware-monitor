@@ -131,7 +131,7 @@ void MainWindow::alertWhenOverMaxMhz() {
 
 void MainWindow::cpuFrqChanged(std::map<std::string, std::string> map) {
     updateSensorValues(ui->cpu0_current, ui->cpu0_min, ui->cpu0_max, ui->cpu0_max_allowed, ui->cpu0_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq"],
+        map[cpu0CurFreq],
         map["/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"],
         map["/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"], false);
 
