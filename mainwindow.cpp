@@ -243,7 +243,6 @@ MainWindow::MainWindow(QWidget *parent) :
                       SLOT (onProgressChanged(const std::map<std::string, std::string>&)));
     thread->start();
 
-
     QThread* cpuFrqThread = new QThread;
     cpuFrqWorker = new CpuFrqUpdater();
     cpuFrqWorker->moveToThread(cpuFrqThread);

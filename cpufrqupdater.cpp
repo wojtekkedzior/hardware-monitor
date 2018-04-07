@@ -17,9 +17,7 @@ void CpuFrqUpdater::process(){
         sleep(cpuFreqSleepFor);
 
         for ( int i = 0; i <= 11; i++) {
-            string filedir = "/sys/devices/system/cpu/cpufreq/policy";
-            filedir.append( std::to_string(i));
-            filedir.append("/scaling_cur_freq");
+            string filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_cur_freq";
 
             ifstream cpuCurFreqFile(filedir);
 
@@ -31,9 +29,7 @@ void CpuFrqUpdater::process(){
 
             cpuCurFreqFile.close();
 
-            filedir = "/sys/devices/system/cpu/cpufreq/policy";
-            filedir.append( std::to_string(i));
-            filedir.append("/scaling_min_freq");
+            filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_min_freq";
 
             ifstream cpuMinFreqFile(filedir);
 
@@ -44,9 +40,7 @@ void CpuFrqUpdater::process(){
 
             cpuMinFreqFile.close();
 
-            filedir = "/sys/devices/system/cpu/cpufreq/policy";
-            filedir.append( std::to_string(i));
-            filedir.append("/scaling_max_freq");
+            filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_max_freq";
 
             ifstream cpuMaxFreqFile(filedir);
 
