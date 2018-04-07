@@ -2,6 +2,7 @@
 
 #include <unistd.h>
 #include <map>
+#include <iostream>
 
 #include <fstream>
 #include <string>
@@ -29,6 +30,7 @@ void CpuTempUpdater::process(){
         }
 
         emit cpuTempChanged(map);
+        map.clear();
     }
 }
 

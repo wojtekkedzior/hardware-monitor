@@ -5,6 +5,7 @@
 
 #include <fstream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -28,6 +29,7 @@ void FanUpdater::process(){
         }
 
         emit progressChanged(map);
+        map.clear();
     }
 }
 

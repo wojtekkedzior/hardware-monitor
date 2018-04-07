@@ -30,53 +30,53 @@ public :
 
 private :
     const char* sensorFiles[36] = {
-        "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy1/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy1/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy1/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy2/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy2/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy2/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy3/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy3/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy4/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy5/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy5/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy5/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy6/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy7/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu8/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy8/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy8/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu9/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy9/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy9/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy9/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu10/cpufreq/cpuinfo_max_freq",
+        "/sys/devices/system/cpu/cpufreq/policy10/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy10/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy10/scaling_max_freq",
 
-        "/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_cur_freq",
-        "/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_min_freq",
-        "/sys/devices/system/cpu/cpu11/cpufreq/cpuinfo_max_freq"
+        "/sys/devices/system/cpu/cpufreq/policy11/scaling_cur_freq",
+        "/sys/devices/system/cpu/cpufreq/policy11/scaling_min_freq",
+        "/sys/devices/system/cpu/cpufreq/policy11/scaling_max_freq"
     };
 
 public slots:

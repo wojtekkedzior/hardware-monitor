@@ -6,6 +6,8 @@
 #include <fstream>
 #include <string>
 
+#include <iostream>
+
 
 using namespace std;
 
@@ -30,6 +32,7 @@ void CpuFrqUpdater::process(){
         }
 
         emit cpuFrqChanged(map);
+        map.clear();
     }
 }
 
