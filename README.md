@@ -4,3 +4,7 @@ Yes, I'm totally re-inventing the over-invented wheel in hardware monitoring too
 
 I've taken some inspiration from https://github.com/karelzak/util-linux/blob/master/sys-utils/lscpu.c especially around the area of locating the correct files that hold the sensor data. 
 
+Granted, the app may not look like much, but putting it together has been very educational.
+
+![Screenshot](docs/app.png)
+
