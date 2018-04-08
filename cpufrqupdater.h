@@ -1,5 +1,42 @@
 #ifndef CPUFRQUPDATER_H
-    static const char*  cpu0CurFreq = "/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq";
+    static const char*  cpu0curFreq = "cpu0currentFrequency";
+    static const char*  cpu1curFreq = "cpu1currentFrequency";
+    static const char*  cpu2curFreq = "cpu2currentFrequency";
+    static const char*  cpu3curFreq = "cpu3currentFrequency";
+    static const char*  cpu4curFreq = "cpu4currentFrequency";
+    static const char*  cpu5curFreq = "cpu5currentFrequency";
+    static const char*  cpu6curFreq = "cpu6currentFrequency";
+    static const char*  cpu7curFreq = "cpu7currentFrequency";
+    static const char*  cpu8curFreq = "cpu8currentFrequency";
+    static const char*  cpu9curFreq = "cpu9currentFrequency";
+    static const char*  cpu10curFreq = "cpu10currentFrequency";
+    static const char*  cpu11curFreq = "cpu11currentFrequency";
+
+    static const char*  cpu0minFreq = "cpu0minFrequency";
+    static const char*  cpu1minFreq = "cpu1minFrequency";
+    static const char*  cpu2minFreq = "cpu2minFrequency";
+    static const char*  cpu3minFreq = "cpu3minFrequency";
+    static const char*  cpu4minFreq = "cpu4minFrequency";
+    static const char*  cpu5minFreq = "cpu5minFrequency";
+    static const char*  cpu6minFreq = "cpu6minFrequency";
+    static const char*  cpu7minFreq = "cpu7minFrequency";
+    static const char*  cpu8minFreq = "cpu8minFrequency";
+    static const char*  cpu9minFreq = "cpu9minFrequency";
+    static const char*  cpu10minFreq = "cpu10minFrequency";
+    static const char*  cpu11minFreq = "cpu11minFrequency";
+
+    static const char*  cpu0maxFreq = "cpu0maxFrequency";
+    static const char*  cpu1maxFreq = "cpu1maxFrequency";
+    static const char*  cpu2maxFreq = "cpu2maxFrequency";
+    static const char*  cpu3maxFreq = "cpu3maxFrequency";
+    static const char*  cpu4maxFreq = "cpu4maxFrequency";
+    static const char*  cpu5maxFreq = "cpu5maxFrequency";
+    static const char*  cpu6maxFreq = "cpu6maxFrequency";
+    static const char*  cpu7maxFreq = "cpu7maxFrequency";
+    static const char*  cpu8maxFreq = "cpu8maxFrequency";
+    static const char*  cpu9maxFreq = "cpu9maxFrequency";
+    static const char*  cpu10maxFreq = "cpu10maxFrequency";
+    static const char*  cpu11maxFreq = "cpu11maxFrequency";
 #define CPUFRQUPDATER_H
 
 #include <QObject>
@@ -27,56 +64,6 @@ public :
     // /sys/class/hwmon/hwmon0/temp1_label
 
 private :
-
-    const char* sensorFiles[36] = {
-        cpu0CurFreq,
-        "/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy1/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy1/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy1/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy2/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy2/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy2/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy3/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy3/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy4/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy5/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy5/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy5/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy6/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy7/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy8/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy8/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy9/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy9/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy9/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy10/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy10/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy10/scaling_max_freq",
-
-        "/sys/devices/system/cpu/cpufreq/policy11/scaling_cur_freq",
-        "/sys/devices/system/cpu/cpufreq/policy11/scaling_min_freq",
-        "/sys/devices/system/cpu/cpufreq/policy11/scaling_max_freq"
-    };
 
 public slots:
     void process();

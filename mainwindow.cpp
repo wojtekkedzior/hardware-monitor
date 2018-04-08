@@ -131,64 +131,40 @@ void MainWindow::alertWhenOverMaxMhz() {
 
 void MainWindow::cpuFrqChanged(std::map<std::string, std::string> map) {
     updateSensorValues(ui->cpu0_current, ui->cpu0_min, ui->cpu0_max, ui->cpu0_max_allowed, ui->cpu0_min_allowed,
-        map[cpu0CurFreq],
-        map["/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"], false);
+                       map[cpu0curFreq], map[cpu0maxFreq], map[cpu0minFreq], false);
 
     updateSensorValues(ui->cpu1_current, ui->cpu1_min, ui->cpu1_max, ui->cpu1_max_allowed, ui->cpu1_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy1/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy1/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy1/scaling_min_freq"], false);
+                       map[cpu1curFreq], map[cpu1maxFreq], map[cpu1minFreq], false);
 
     updateSensorValues(ui->cpu2_current, ui->cpu2_min, ui->cpu2_max, ui->cpu2_max_allowed, ui->cpu2_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy2/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy2/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy2/scaling_min_freq"], false);
+                       map[cpu2curFreq], map[cpu2maxFreq], map[cpu2minFreq], false);
 
     updateSensorValues(ui->cpu3_current, ui->cpu3_min, ui->cpu3_max, ui->cpu3_max_allowed, ui->cpu3_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy3/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy3/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq"], false);
+                       map[cpu3curFreq], map[cpu3maxFreq], map[cpu3minFreq], false);
 
     updateSensorValues(ui->cpu4_current, ui->cpu4_min, ui->cpu4_max, ui->cpu4_max_allowed, ui->cpu4_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy4/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq"], false);
+                       map[cpu4curFreq], map[cpu4maxFreq], map[cpu4minFreq], false);
 
     updateSensorValues(ui->cpu5_current, ui->cpu5_min, ui->cpu5_max, ui->cpu5_max_allowed, ui->cpu5_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy5/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy5/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy5/scaling_min_freq"], false);
+                       map[cpu5curFreq], map[cpu5maxFreq], map[cpu5minFreq], false);
 
     updateSensorValues(ui->cpu6_current, ui->cpu6_min, ui->cpu6_max, ui->cpu6_max_allowed, ui->cpu6_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy6/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq"], false);
+                       map[cpu6curFreq], map[cpu6maxFreq], map[cpu6minFreq], false);
 
     updateSensorValues(ui->cpu7_current, ui->cpu7_min, ui->cpu7_max, ui->cpu7_max_allowed, ui->cpu7_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy7/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq"], false);
+                       map[cpu7curFreq], map[cpu7maxFreq], map[cpu7minFreq], false);
 
     updateSensorValues(ui->cpu8_current, ui->cpu8_min, ui->cpu8_max, ui->cpu8_max_allowed, ui->cpu8_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy8/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy8/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq"], false);
+                       map[cpu8curFreq], map[cpu8maxFreq], map[cpu8minFreq], false);
 
     updateSensorValues(ui->cpu9_current, ui->cpu9_min, ui->cpu9_max, ui->cpu9_max_allowed, ui->cpu9_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy9/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy9/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy9/scaling_min_freq"], false);
+                       map[cpu9curFreq], map[cpu9maxFreq], map[cpu9minFreq], false);
 
     updateSensorValues(ui->cpu10_current, ui->cpu10_min, ui->cpu10_max, ui->cpu10_max_allowed, ui->cpu10_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy10/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy10/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy10/scaling_min_freq"], false);
+                       map[cpu10curFreq], map[cpu10maxFreq], map[cpu10minFreq], false);
 
     updateSensorValues(ui->cpu11_current, ui->cpu11_min, ui->cpu11_max, ui->cpu11_max_allowed, ui->cpu11_min_allowed,
-        map["/sys/devices/system/cpu/cpufreq/policy11/scaling_cur_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy11/scaling_max_freq"],
-        map["/sys/devices/system/cpu/cpufreq/policy11/scaling_min_freq"], false);
+                       map[cpu11curFreq], map[cpu11maxFreq], map[cpu11minFreq], false);
 }
 
 void MainWindow::cpuTempChanged(std::map<std::string, std::string> map) {
@@ -252,7 +228,6 @@ MainWindow::MainWindow(QWidget *parent) :
                          SLOT (cpuFrqChanged(const std::map<std::string, std::string>&)));
     cpuFrqThread->start();
 
-
     QThread* cpuTempThread = new QThread;
     cpuTempWorker = new CpuTempUpdater();
     cpuTempWorker->moveToThread(cpuTempThread);
@@ -264,7 +239,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->temp_offset_value->setText(QString::number(0));
     ui->update_frequency->setText(QString::number(1));
-
 }
 
 MainWindow::~MainWindow()

@@ -17,38 +17,28 @@ void CpuFrqUpdater::process(){
         sleep(cpuFreqSleepFor);
 
         for ( int i = 0; i <= 11; i++) {
-            string filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_cur_freq";
-
-            ifstream cpuCurFreqFile(filedir);
-
             string line;
+
+            ifstream cpuCurFreqFile("/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_cur_freq");
             while (getline(cpuCurFreqFile, line))
             {
-                map[filedir] = line;
+                map["cpu" + std::to_string(i) + "currentFrequency"] = line;
             }
-
             cpuCurFreqFile.close();
 
-            filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_min_freq";
-
-            ifstream cpuMinFreqFile(filedir);
-
+            ifstream cpuMinFreqFile("/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_min_freq");
             while (getline(cpuMinFreqFile, line))
             {
-                map[filedir] = line;
+                map["cpu" + std::to_string(i) + "minFrequency"] = line;
             }
-
             cpuMinFreqFile.close();
 
-            filedir = "/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_max_freq";
 
-            ifstream cpuMaxFreqFile(filedir);
-
+            ifstream cpuMaxFreqFile("/sys/devices/system/cpu/cpufreq/policy" + std::to_string(i)+ "/scaling_max_freq");
             while (getline(cpuMaxFreqFile, line))
             {
-                map[filedir] = line;
+                map["cpu" + std::to_string(i) + "maxFrequency"] = line;
             }
-
             cpuMaxFreqFile.close();
         }
 
@@ -56,6 +46,16 @@ void CpuFrqUpdater::process(){
         map.clear();
     }
 }
+
+
+
+void readFile(string fileDir, map<string, string> map) {
+
+
+
+
+}
+
 
 int CpuFrqUpdater::updateCheckFrequency(int newSleepValue) {
     cpuFreqSleepFor = newSleepValue;
